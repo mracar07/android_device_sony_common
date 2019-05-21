@@ -19,8 +19,8 @@ COMMON_PATH := device/sony/common
 SONY_AOSP ?= true
 
 # CarrierConfig overlay
-PRODUCT_PACKAGE_OVERLAYS += \
-    vendor/omni/overlay/CarrierConfig
+# PRODUCT_PACKAGE_OVERLAYS += \
+#     vendor/omni/overlay/CarrierConfig
 
 # Common kernel source
 TARGET_KERNEL_SOURCE := kernel/sony/msm
@@ -30,7 +30,7 @@ TARGET_COMPILE_WITH_MSM_KERNEL := true
 BOARD_USE_ENFORCING_SELINUX := true
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.build.selinux=1
-include vendor/omni/sepolicy/sepolicy.mk
+include device/qcom/sepolicy/sepolicy.mk
 
 # Healthd
 HEALTHD_FORCE_BACKLIGHT_CONTROL := true
@@ -48,7 +48,7 @@ BOARD_INCLUDE_CMDLINE_TOOLS := true
 TARGET_PROVIDES_DTBOIMAGE := true
 
 # Omni config
-$(call inherit-product, vendor/omni/config/common.mk)
+# $(call inherit-product, vendor/omni/config/common.mk)
 
 # Widevine DRM
 $(call inherit-product-if-exists, vendor/sony/widevine/widevine.mk)
